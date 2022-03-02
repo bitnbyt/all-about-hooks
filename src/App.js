@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useReducer, Fragment} from 'react'
+import React, {useState, useReducer, Fragment} from 'react'
 import ToDo from './Todo'
 
 export const ACTIONS = {
@@ -35,15 +35,19 @@ export default function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(document.querySelectorAll('[name="submit-button"]'))
+    console.log(document.forms['todo-form']['submit-button'])
+    // console.log(document)
     dispatch({type: ACTIONS.ADD_TODO,payload: {name}})
     setName('')
   }
 
   return (
     <Fragment>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} name="todo-form">
         <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
-      </form>
+        <input type="submit" name="submit-button" value="Submit" />
+        </form>
       {todos.map(todo => {
         return <ToDo key={todo.id} todo={todo} dispatch={dispatch} />
       })}
