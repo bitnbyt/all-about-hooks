@@ -19,6 +19,8 @@ export default function App() {
        <br />
 
        <p>Also please don't mind as i have not styled the component as the goal was to learn hooks. </p>
+
+       <p> Will keep update with remaining hooks as well as some questionary about the hooks.</p>
     </div>
   )
 }
